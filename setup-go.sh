@@ -14,4 +14,5 @@ curl -sSL https://get.daocloud.io/docker | sh
 docker ps
 docker pull karalabe/xgo-latest
 go get github.com/karalabe/xgo
+xgo github.com/project-iris/iris
 
