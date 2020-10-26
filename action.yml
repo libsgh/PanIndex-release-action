@@ -1,0 +1,17 @@
+# action.yml
+name: 'PanIndex-release-action'
+author: 'libsgh <woiyyng@gmail.com>'
+description: 'Release PanIndex binaries to GitHub Release Assets'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN for uploading releases to Github asserts.'
+    required: true
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.github_token }}
+branding:
+  icon: 'package'  
+  color: 'blue'
