@@ -8,6 +8,8 @@ git clone https://github.com/libsgh/PanIndex.git
 
 cd PanIndex
 
+go get github.com/karalabe/xgo
+
 go get -u github.com/gobuffalo/packr/v2/packr2
 
 packr2
