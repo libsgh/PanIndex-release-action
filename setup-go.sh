@@ -10,9 +10,3 @@ export GO_HOME=/usr/local/go
 export PATH=${GO_HOME}/bin/:$PATH
 export GOPATH=/go
 
-curl -sSL https://get.daocloud.io/docker | sh
-docker ps
-docker pull karalabe/xgo-latest
-go get github.com/karalabe/xgo
-xgo github.com/project-iris/iris
-
