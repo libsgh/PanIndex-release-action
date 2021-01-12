@@ -1,6 +1,7 @@
 #!/bin/bash -eux
 
 # prepare upload URL
+cat ${GITHUB_EVENT_PATH}
 RELEASE_ASSETS_UPLOAD_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .release.upload_url)
 RELEASE_ASSETS_UPLOAD_URL=${RELEASE_ASSETS_UPLOAD_URL%\{?name,label\}}
 git clone https://github.com/libsgh/PanIndex.git
@@ -21,7 +22,7 @@ cp -r LICENSE README.md CHANGELOG.md config/config.json ${BUILD_ARTIFACTS_FOLDER
 cd ${BUILD_ARTIFACTS_FOLDER}
 ls -lha
 
-tar cvfz PanIndex-${RELEASE_TAG}-linux-amd64.tar.gz
+tar cvfz PanIndex-${RELEASE_TAG}-linux-amd64.tar.gz  *
 
 # update binary and checksum
 curl \
