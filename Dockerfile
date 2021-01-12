@@ -1,7 +1,8 @@
 
 FROM karalabe/xgo-1.13.4
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y \
   curl \
   wget \
   git \
