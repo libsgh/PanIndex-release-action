@@ -11,4 +11,5 @@ export GOPATH=/go
 export GO111MODULE="on"
 export GOPROXY="https://goproxy.io"
 export PATH=${GO_HOME}/bin/:$PATH
+export PATH=${GOPATH}/bin/:$PATH
 
