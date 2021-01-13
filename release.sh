@@ -70,7 +70,7 @@ MD5_SUM=$(md5sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 SHA1_SUM=$(sha1sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 SHA256_SUM=$(sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 SHA512_SUM=$(sha512sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
-
+DGST='MD5='${MD5_SUM}'\nSHA1='${SHA1_SUM}'\nSHA256='${SHA256_SUM}'\nSHA512='${SHA512_SUM}
 
 # update binary and checksum
 curl \
@@ -85,7 +85,7 @@ echo $?
 curl \
   --fail \
   -X POST \
-  --data $'MD5=${MD5_SUM}\nSHA1=${SHA1_SUM}\nSHA256=${SHA256_SUM}\nSHA512=${SHA512_SUM}' \
+  --data $DGST \
   -H 'Content-Type: text/plain' \
   -H "Authorization: Bearer ${INPUT_GITHUB_TOKEN}" \
   "${RELEASE_ASSETS_UPLOAD_URL}?name=PanIndex-${RELEASE_TAG}-${FILE_SUFFIX}.dgst"
