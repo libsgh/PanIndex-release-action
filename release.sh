@@ -75,7 +75,7 @@ SHA512_SUM=$(sha512sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 curl \
   --fail \
   -X POST \
-  --data-binary @PanIndex-${RELEASE_TAG}-linux-amd64.tar.gz \
+  --data-binary @PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} \
   -H 'Content-Type: application/gzip' \
   -H "Authorization: Bearer ${INPUT_GITHUB_TOKEN}" \
   "${RELEASE_ASSETS_UPLOAD_URL}?name=PanIndex-${RELEASE_TAG}-${FILE_SUFFIX}"
