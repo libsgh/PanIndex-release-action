@@ -4,7 +4,7 @@
 RELEASE_ASSETS_UPLOAD_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .release.upload_url)
 RELEASE_ASSETS_UPLOAD_URL=${RELEASE_ASSETS_UPLOAD_URL%\{?name,label\}}
 
-cd ${INPUT_PROJECT_PATH}
+cd ${GITHUB_WORKSPACE}
 
 RELEASE_TAG=$(basename ${GITHUB_REF})
 BUILD_ARTIFACTS_FOLDER=build-artifacts-$(date +%s)
