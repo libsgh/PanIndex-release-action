@@ -11,6 +11,7 @@ BUILD_ARTIFACTS_FOLDER=build-artifacts-$(date +%s)
 mkdir -p ${BUILD_ARTIFACTS_FOLDER}
 # binary suffix
 EXT=''
+ASSETS_EXT='.tar.gz'
 if [ $1 == 'windows' ]; then
   EXT='.exe'
   ASSETS_EXT='.zip'
