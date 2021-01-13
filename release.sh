@@ -19,42 +19,42 @@ fi
 FILE_SUFFIX=$1-$2${ASSETS_EXT}
 if [ $1 == 'linux' ]&&[ $2 == '386' ]; then
 # linux-386
-CGO_ENABLED=1 GOOS=linux GOARCH=386 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}}
+CGO_ENABLED=1 GOOS=linux GOARCH=386 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}
 fi
 
 if [ $1 == 'linux' ]&&[ $2 == 'amd64' ]; then
 # linux-amd64
-CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}}
+CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}
 fi
 
 if [ $1 == 'linux' ]&&[ $2 == 'arm32-v7' ]; then
 # linux-armv7-a
-CC=arm-linux-gnueabihf-gcc-5 CXX=arm-linux-gnueabihf-g++-5 GOOS=linux GOARCH=arm GOARM=7 CGO_ENABLED=1 CGO_CFLAGS="-march=armv7-a -fPIC" CGO_CXXFLAGS="-march=armv7-a -fPIC" go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}}
+CC=arm-linux-gnueabihf-gcc-5 CXX=arm-linux-gnueabihf-g++-5 GOOS=linux GOARCH=arm GOARM=7 CGO_ENABLED=1 CGO_CFLAGS="-march=armv7-a -fPIC" CGO_CXXFLAGS="-march=armv7-a -fPIC" go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}
 fi
 
 if [ $1 == 'linux' ]&&[ $2 == 'arm64' ]; then
 # linux-arm64
-CC=aarch64-linux-gnu-gcc-5 CXX=aarch64-linux-gnu-g++-5 GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}}
+CC=aarch64-linux-gnu-gcc-5 CXX=aarch64-linux-gnu-g++-5 GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}
 fi
 
 if [ $1 == 'windows' ]&&[ $2 == 'amd64' ]; then
 # windows-amd64
-CC=x86_64-w64-mingw32-gcc-posix CXX=x86_64-w64-mingw32-g++-posix GOOS=windows GOARCH=amd64 CGO_ENABLED=1 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}}
+CC=x86_64-w64-mingw32-gcc-posix CXX=x86_64-w64-mingw32-g++-posix GOOS=windows GOARCH=amd64 CGO_ENABLED=1 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}
 fi
 
 if [ $1 == 'windows' ]&&[ $2 == '386' ]; then
 # windows-386
-CC=i686-w64-mingw32-gcc-posix CXX=i686-w64-mingw32-g++-posix GOOS=windows GOARCH=386 CGO_ENABLED=1 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}}
+CC=i686-w64-mingw32-gcc-posix CXX=i686-w64-mingw32-g++-posix GOOS=windows GOARCH=386 CGO_ENABLED=1 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}
 fi
 
 if [ $1 == 'darwin' ]&&[ $2 == 'amd64' ]; then
 # darwin-amd64
-CC=o64-clang CXX=o64-clang++ GOOS=darwin GOARCH=amd64 CGO_ENABLED=1 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}}
+CC=o64-clang CXX=o64-clang++ GOOS=darwin GOARCH=amd64 CGO_ENABLED=1 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}
 fi
 
 if [ $1 == 'darwin' ]&&[ $2 == '386' ]; then
 # darwin-386
-CC=o32-clang CXX=o32-clang++ GOOS=darwin GOARCH=386 CGO_ENABLED=1 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}}
+CC=o32-clang CXX=o32-clang++ GOOS=darwin GOARCH=386 CGO_ENABLED=1 go build -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT}
 fi
 
 cp -r LICENSE README.md config/config.json ${BUILD_ARTIFACTS_FOLDER}/
