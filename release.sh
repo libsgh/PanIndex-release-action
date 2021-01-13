@@ -85,8 +85,13 @@ echo $?
 curl \
   --fail \
   -X POST \
-  --data MD5=${MD5_SUM}\nSHA1=${SHA1_SUM}\nSHA256=${SHA256_SUM}\nSHA512=${SHA512_SUM} \
   -H 'Content-Type: text/plain' \
   -H "Authorization: Bearer ${INPUT_GITHUB_TOKEN}" \
-  "${RELEASE_ASSETS_UPLOAD_URL}?name=PanIndex-${RELEASE_TAG}-${FILE_SUFFIX}.dgst"
+  --data-binary @- \
+  "${RELEASE_ASSETS_UPLOAD_URL}?name=PanIndex-${RELEASE_TAG}-${FILE_SUFFIX}.dgst" <<EOF
+  MD5=${MD5_SUM}
+  SHA1=${SHA1_SUM}
+  SHA256=${SHA256_SUM}
+  SHA512=${SHA512_SUM}
+  EOF
 echo $?
