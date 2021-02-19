@@ -3,5 +3,5 @@
 export GO111MODULE="on"
 #export GOPROXY="https://goproxy.io"
 export PATH=/go/bin/:$PATH
-go get -u github.com/gobuffalo/packr/v2/packr2
+go get -u github.com/gobuffalo/packr/v2/packr2@v2.5.1
 packr2
