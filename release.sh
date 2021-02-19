@@ -9,7 +9,7 @@ cd ${GITHUB_WORKSPACE}
 RELEASE_TAG=$(basename ${GITHUB_REF})
 BUILD_ARTIFACTS_FOLDER=build-artifacts-$(date +%s)
 mkdir -p ${BUILD_ARTIFACTS_FOLDER}
-flags="-X 'main.VERSION=${RELEASE_TAG}' -X 'main.BUILD_TIME=$(date "+%F %T")' -X 'main.GO_VERSION=$(go version)'-X 'main.GIT_COMMIT_SHA=$(git show -s --format=%H)'"
+flags="-X 'PanIndex/boot.VERSION=${RELEASE_TAG}' -X 'PanIndex/boot.BUILD_TIME=$(date "+%F %T")' -X 'PanIndex/boot.GO_VERSION=$(go version)'-X 'PanIndex/boot.GIT_COMMIT_SHA=$(git show -s --format=%H)'"
 # binary suffix
 EXT=''
 ASSETS_EXT='.tar.gz'
@@ -67,12 +67,12 @@ else
 tar cvfz PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} *
 fi
 
-MD5_SUM=$(md5sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
+#MD5_SUM=$(md5sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 #SHA1_SUM=$(sha1sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 #SHA256_SUM=$(sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 #SHA512_SUM=$(sha512sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
-
-# update binary and checksum
+sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} >> sha256.list
+# update binary
 curl \
   --fail \
   -X POST \
@@ -80,13 +80,4 @@ curl \
   -H 'Content-Type: application/gzip' \
   -H "Authorization: Bearer ${INPUT_GITHUB_TOKEN}" \
   "${RELEASE_ASSETS_UPLOAD_URL}?name=PanIndex-${RELEASE_TAG}-${FILE_SUFFIX}"
-echo $?
-
-curl \
-  --fail \
-  -X POST \
-  --data $MD5_SUM \
-  -H 'Content-Type: text/plain' \
-  -H "Authorization: Bearer ${INPUT_GITHUB_TOKEN}" \
-  "${RELEASE_ASSETS_UPLOAD_URL}?name=PanIndex-${RELEASE_TAG}-${FILE_SUFFIX}.md5"
 echo $?
