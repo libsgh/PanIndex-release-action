@@ -13,8 +13,8 @@ go version
 /release.sh linux arm64
 /release.sh windows 386
 /release.sh windows amd64
-/release.sh darwin 386
-/release.sh darwin amd64
+#/release.sh darwin 386
+#/release.sh darwin amd64
 
 # update checksum
 # prepare upload URL
