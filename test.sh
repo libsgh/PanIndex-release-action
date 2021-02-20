@@ -12,8 +12,6 @@ cd PanIndex
 
 flags="-X 'PanIndex/boot.VERSION=v1.0.3' -X 'PanIndex/boot.BUILD_TIME=$(date "+%F %T")' -X 'PanIndex/boot.GO_VERSION=$(go version)'-X 'PanIndex/boot.GIT_COMMIT_SHA=$(git show -s --format=%H)'"
 
-go build -ldflags="$flags" -v -o PanIndex .
-
-./PanIndex
+CGO_ENABLED=1 GOOS=linux  GOARCH=386 go build -ldflags="$flags" -v -o PanIndex .
 
 
