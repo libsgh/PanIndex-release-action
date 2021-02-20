@@ -5,7 +5,7 @@ source /setup-go.sh
 
 # easy to debug if anything wrong
 go version
-source /test.sh
+#source /test.sh
 # build & release go binaries
 /release.sh linux 386
 sleep 30
