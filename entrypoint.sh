@@ -19,9 +19,10 @@ sleep 30
 sleep 30
 /release.sh windows amd64
 sleep 30
-#/release.sh darwin 386
-#/release.sh darwin amd64
-
+/release.sh darwin 386
+sleep 30
+/release.sh darwin amd64
+sleep 30
 # update checksum
 # prepare upload URL
 RELEASE_ASSETS_UPLOAD_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .release.upload_url)
