@@ -1,4 +1,4 @@
-FROM karalabe/xgo-latest
+FROM karalabe/xgo-1.13.4
 RUN apt-get update
 RUN apt-get install -y \
   curl \
