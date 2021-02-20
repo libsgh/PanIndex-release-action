@@ -8,11 +8,17 @@ go version
 
 # build & release go binaries
 /release.sh linux 386
+sleep 30
 /release.sh linux amd64
+sleep 30
 /release.sh linux arm32-v7
+sleep 30
 /release.sh linux arm64
+sleep 30
 /release.sh windows 386
+sleep 30
 /release.sh windows amd64
+sleep 30
 #/release.sh darwin 386
 #/release.sh darwin amd64
 
