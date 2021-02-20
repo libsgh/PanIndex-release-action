@@ -8,7 +8,8 @@ go version
 
 git clone https://github.com/libsgh/PanIndex.git
 
-cd PanIndex
+#cd PanIndex
+cd ${GITHUB_WORKSPACE}
 
 flags="-X 'PanIndex/boot.VERSION=v1.0.3' -X 'PanIndex/boot.BUILD_TIME=$(date "+%F %T")' -X 'PanIndex/boot.GO_VERSION=$(go version)'-X 'PanIndex/boot.GIT_COMMIT_SHA=$(git show -s --format=%H)'"
 
