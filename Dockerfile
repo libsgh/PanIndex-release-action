@@ -1,4 +1,5 @@
-FROM crazymax/xgo
+FROM crazymax/xgo:1.16.x
+
 RUN apt-get update
 RUN apt-get install -y \
   curl \
