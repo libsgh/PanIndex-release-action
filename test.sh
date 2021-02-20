@@ -6,10 +6,12 @@ source /setup-go.sh
 # easy to debug if anything wrong
 go version
 
-git clone https://github.com/libsgh/PanIndex.git
+#git clone https://github.com/libsgh/PanIndex.git
 
 #cd PanIndex
 cd ${GITHUB_WORKSPACE}
+ls -n
+cat go.mod
 
 flags="-X 'PanIndex/boot.VERSION=v1.0.3' -X 'PanIndex/boot.BUILD_TIME=$(date "+%F %T")' -X 'PanIndex/boot.GO_VERSION=$(go version)'-X 'PanIndex/boot.GIT_COMMIT_SHA=$(git show -s --format=%H)'"
 
