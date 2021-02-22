@@ -19,8 +19,8 @@ sleep 30
 sleep 30
 /release.sh windows amd64
 sleep 30
-/release.sh darwin 386
-sleep 30
+#/release.sh darwin 386
+#sleep 30
 /release.sh darwin amd64
 sleep 30
 # update checksum
