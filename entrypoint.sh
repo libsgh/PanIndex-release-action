@@ -1,24 +1,21 @@
 #!/bin/bash -eux
 
 # prepare golang
-source /setup-go.sh 
+source /setup-go.sh
 
-# easy to debug if anything wrong
-go version
-git clone https://github.com/libsgh/PanIndex.git ${GITHUB_WORKSPACE}/master
 # build & release go binaries
 /release.sh linux 386
-sleep 30
+sleep 10
 /release.sh linux amd64
-sleep 30
+sleep 10
 /release.sh linux arm32-v7
-sleep 30
+sleep 10
 /release.sh linux arm64
-sleep 30
+sleep 10
 /release.sh windows 386
-sleep 30
+sleep 10
 /release.sh windows amd64
-sleep 30
+sleep 10
 #/release.sh darwin 386
 #sleep 30
 #/release.sh darwin amd64

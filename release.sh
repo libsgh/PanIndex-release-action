@@ -4,7 +4,7 @@
 RELEASE_ASSETS_UPLOAD_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .release.upload_url)
 RELEASE_ASSETS_UPLOAD_URL=${RELEASE_ASSETS_UPLOAD_URL%\{?name,label\}}
 
-cd ${GITHUB_WORKSPACE}/master
+cd ${GITHUB_WORKSPACE}
 RELEASE_TAG=$(basename ${GITHUB_REF})
 BUILD_ARTIFACTS_FOLDER=build-artifacts-$(date +%s)
 mkdir -p ${BUILD_ARTIFACTS_FOLDER}
@@ -17,6 +17,7 @@ if [ $1 == 'windows' ]; then
   ASSETS_EXT='.zip'
 fi
 FILE_SUFFIX=$1-$2${ASSETS_EXT}
+packr2
 if [ $1 == 'linux' ]&&[ $2 == '386' ]; then
 # linux-386
 CGO_ENABLED=1 GOOS=linux GOARCH=386 go build -ldflags="$flags" -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT} .
@@ -66,10 +67,7 @@ else
 tar cvfz PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} *
 fi
 
-#MD5_SUM=$(md5sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
-#SHA1_SUM=$(sha1sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 #SHA256_SUM=$(sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
-#SHA512_SUM=$(sha512sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} >> ${GITHUB_WORKSPACE}/sha256.list
 # update binary
 curl \
