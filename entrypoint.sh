@@ -30,7 +30,7 @@ RELEASE_ASSETS_UPLOAD_URL=${RELEASE_ASSETS_UPLOAD_URL%\{?name,label\}}
 curl \
   --fail \
   -X POST \
-  --data-binary @sha256.list \
+  --data-binary @${GITHUB_WORKSPACE}/master/sha256.list \
   -H 'Content-Type: text/plain' \
   -H "Authorization: Bearer ${INPUT_GITHUB_TOKEN}" \
   "${RELEASE_ASSETS_UPLOAD_URL}?name=sha256.list"
