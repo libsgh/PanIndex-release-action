@@ -1,4 +1,4 @@
-FROM techknowlogick/xgo:latest
+FROM crazymax/xgo:latest
 
 RUN apt-get update
 RUN apt-get install -y \
