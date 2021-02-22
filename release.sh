@@ -4,7 +4,7 @@
 RELEASE_ASSETS_UPLOAD_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .release.upload_url)
 RELEASE_ASSETS_UPLOAD_URL=${RELEASE_ASSETS_UPLOAD_URL%\{?name,label\}}
 
-cd ${GITHUB_WORKSPACE}
+cd ${GITHUB_WORKSPACE}/master
 RELEASE_TAG=$(basename ${GITHUB_REF})
 BUILD_ARTIFACTS_FOLDER=build-artifacts-$(date +%s)
 mkdir -p ${BUILD_ARTIFACTS_FOLDER}
@@ -70,7 +70,7 @@ fi
 #SHA1_SUM=$(sha1sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 #SHA256_SUM=$(sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 #SHA512_SUM=$(sha512sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
-sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} >> ${GITHUB_WORKSPACE}/sha256.list
+sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} >> ${GITHUB_WORKSPACE}/master/sha256.list
 # update binary
 curl \
   --fail \

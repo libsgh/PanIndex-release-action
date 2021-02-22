@@ -5,8 +5,7 @@ source /setup-go.sh
 
 # easy to debug if anything wrong
 go version
-rm -rf ${GITHUB_WORKSPACE}
-git clone https://github.com/libsgh/PanIndex.git ${GITHUB_WORKSPACE}
+git clone https://github.com/libsgh/PanIndex.git ${GITHUB_WORKSPACE}/master
 # build & release go binaries
 /release.sh linux 386
 sleep 30
