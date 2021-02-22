@@ -70,7 +70,7 @@ fi
 #SHA1_SUM=$(sha1sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 #SHA256_SUM=$(sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
 #SHA512_SUM=$(sha512sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} | cut -d ' ' -f 1)
-sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} >> ${GITHUB_WORKSPACE}/master/sha256.list
+sha256sum PanIndex-${RELEASE_TAG}-${FILE_SUFFIX} >> ${GITHUB_WORKSPACE}/sha256.list
 # update binary
 curl \
   --fail \
