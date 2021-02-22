@@ -1,4 +1,4 @@
-FROM crazymax/xgo:1.16.x
+FROM karalabe/xgo
 
 RUN apt-get update
 RUN apt-get install -y \
