@@ -20,6 +20,7 @@ sleep 10
 #sleep 30
 #/release.sh darwin amd64
 #sleep 30
+/release-ui.sh
 # update checksum
 # prepare upload URL
 RELEASE_ASSETS_UPLOAD_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .release.upload_url)
