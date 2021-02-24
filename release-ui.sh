@@ -5,6 +5,7 @@ RELEASE_ASSETS_UPLOAD_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .release.upload_url
 RELEASE_ASSETS_UPLOAD_URL=${RELEASE_ASSETS_UPLOAD_URL%\{?name,label\}}
 
 cd ${GITHUB_WORKSPACE}
+RELEASE_TAG=$(basename ${GITHUB_REF})
 mkdir ui
 cp -R -f static/ ui/static/
 cp -R -f templates/ ui/templates/
