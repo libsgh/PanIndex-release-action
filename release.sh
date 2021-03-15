@@ -9,6 +9,7 @@ RELEASE_TAG=$(basename ${GITHUB_REF})
 BUILD_ARTIFACTS_FOLDER=build-artifacts-$(date +%s)
 mkdir -p ${BUILD_ARTIFACTS_FOLDER}
 flags="-X 'PanIndex/boot.VERSION=${RELEASE_TAG}' -X 'PanIndex/boot.BUILD_TIME=$(date "+%F %T")' -X 'PanIndex/boot.GO_VERSION=$(go version)'-X 'PanIndex/boot.GIT_COMMIT_SHA=$(git show -s --format=%H)'"
+CC_CXX_VERSION="8"
 # binary suffix
 EXT=''
 ASSETS_EXT='.tar.gz'
@@ -30,12 +31,12 @@ fi
 
 if [ $1 == 'linux' ]&&[ $2 == 'arm32-v7' ]; then
 # linux-armv7-a
-CC=arm-linux-gnueabihf-gcc-6 CXX=arm-linux-gnueabihf-g++-6 GOOS=linux GOARCH=arm GOARM=7 CGO_ENABLED=1 CGO_CFLAGS="-march=armv7-a -fPIC" CGO_CXXFLAGS="-march=armv7-a -fPIC" go build -ldflags="$flags" -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT} .
+CC=arm-linux-gnueabihf-gcc-$CC_CXX_VERSION CXX=arm-linux-gnueabihf-g++-$CC_CXX_VERSION GOOS=linux GOARCH=arm GOARM=7 CGO_ENABLED=1 CGO_CFLAGS="-march=armv7-a -fPIC" CGO_CXXFLAGS="-march=armv7-a -fPIC" go build -ldflags="$flags" -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT} .
 fi
 
 if [ $1 == 'linux' ]&&[ $2 == 'arm64' ]; then
 # linux-arm64
-CC=aarch64-linux-gnu-gcc-6 CXX=aarch64-linux-gnu-g++-6 GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go build -ldflags="$flags" -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT} .
+CC=aarch64-linux-gnu-gcc-$CC_CXX_VERSION CXX=aarch64-linux-gnu-g++-$CC_CXX_VERSION GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go build -ldflags="$flags" -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT} .
 fi
 
 if [ $1 == 'windows' ]&&[ $2 == 'amd64' ]; then
