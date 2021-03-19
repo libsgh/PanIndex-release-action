@@ -1,4 +1,4 @@
-ARG CC_CXX_VERSION="6"
+ARG CC_CXX_VERSION="7"
 ARG OSX_SDK="MacOSX11.1.sdk"
 ARG OSX_SDK_URL="https://github.com/larskanis/MacOSX-SDKs/releases/download/11.1/${OSX_SDK}.tar.xz"
 ARG OSX_CROSS_COMMIT="035cc170338b7b252e3f13b0e3ccbf4411bffc41"
