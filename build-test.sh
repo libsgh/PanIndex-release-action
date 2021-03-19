@@ -1,5 +1,5 @@
 #!/bin/bash -eux
-
+source /setup-go.sh
 # prepare upload URL
 RELEASE_ASSETS_UPLOAD_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .release.upload_url)
 RELEASE_ASSETS_UPLOAD_URL=${RELEASE_ASSETS_UPLOAD_URL%\{?name,label\}}
