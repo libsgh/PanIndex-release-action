@@ -10,5 +10,5 @@ RUN apt-get install -y \
   zip \
   jq
 COPY *.sh /
-ENTRYPOINT ["bash","build-test.sh"]
+ENTRYPOINT ["bash","/build-test.sh"]
 LABEL maintainer="libsgh <woiyyng@gmail.com>"
