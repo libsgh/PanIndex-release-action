@@ -8,6 +8,10 @@ source /setup-go.sh
 sleep 10
 /release.sh linux amd64
 sleep 10
+/release.sh linux arm32-v5
+sleep 10
+/release.sh linux arm32-v6
+sleep 10
 /release.sh linux arm32-v7
 sleep 10
 /release.sh linux arm64
@@ -16,10 +20,10 @@ sleep 10
 sleep 10
 /release.sh windows amd64
 sleep 10
-#/release.sh darwin 386
-#sleep 30
-#/release.sh darwin amd64
-#sleep 30
+/release.sh darwin arm64
+sleep 10
+/release.sh darwin amd64
+sleep 10
 /release-ui.sh
 # update checksum
 # prepare upload URL

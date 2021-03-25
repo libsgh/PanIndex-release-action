@@ -9,7 +9,7 @@ RELEASE_TAG=$(basename ${GITHUB_REF})
 BUILD_ARTIFACTS_FOLDER=build-artifacts-$(date +%s)
 mkdir -p ${BUILD_ARTIFACTS_FOLDER}
 flags="-X 'PanIndex/boot.VERSION=${RELEASE_TAG}' -X 'PanIndex/boot.BUILD_TIME=$(date "+%F %T")' -X 'PanIndex/boot.GO_VERSION=$(go version)'-X 'PanIndex/boot.GIT_COMMIT_SHA=$(git show -s --format=%H)'"
-CC_CXX_VERSION="8"
+CC_CXX_VERSION="6"
 # binary suffix
 EXT=''
 ASSETS_EXT='.tar.gz'
@@ -62,9 +62,9 @@ if [ $1 == 'darwin' ]&&[ $2 == 'amd64' ]; then
 CC=o64-clang CXX=o64-clang++ GOOS=darwin GOARCH=amd64 CGO_ENABLED=1 go build -ldflags="$flags" -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT} .
 fi
 
-if [ $1 == 'darwin' ]&&[ $2 == '386' ]; then
-# darwin-386
-CC=o32-clang CXX=o32-clang++ GOOS=darwin GOARCH=386 CGO_ENABLED=1 go build -ldflags="$flags" -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT} .
+if [ $1 == 'darwin' ]&&[ $2 == 'arm64' ]; then
+# darwin-amd64
+CC=o64-clang CXX=o64-clang++ GOOS=darwin GOARCH=arm64 CGO_ENABLED=1 CGO_ENABLED=1 go build -ldflags="$flags" -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT} .
 fi
 
 cp -r LICENSE README.md config/config.json ${BUILD_ARTIFACTS_FOLDER}/
