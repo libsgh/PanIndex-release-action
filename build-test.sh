@@ -24,4 +24,4 @@ CC=arm-linux-gnueabi-gcc-$CC_CXX_VERSION CXX=arm-linux-gnueabi-g++-$CC_CXX_VERSI
 CC=arm-linux-gnueabihf-gcc-$CC_CXX_VERSION CXX=arm-linux-gnueabihf-g++-$CC_CXX_VERSION GOOS=linux GOARCH=arm GOARM=7 CGO_ENABLED=1 CGO_CFLAGS="-march=armv7-a -fPIC" CGO_CXXFLAGS="-march=armv7-a -fPIC" go build -ldflags="$flags" -o dist/PanIndex-linux-armv7${EXT} .
 CC=aarch64-linux-gnu-gcc-$CC_CXX_VERSION CXX=aarch64-linux-gnu-g++-$CC_CXX_VERSION GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go build -ldflags="$flags" -o dist/PanIndex-linux-arm64${EXT} .
 cd dist
-ls- n
+ls -n
