@@ -67,7 +67,7 @@ if [ $1 == 'darwin' ]&&[ $2 == 'arm64' ]; then
 CC=o64-clang CXX=o64-clang++ GOOS=darwin GOARCH=arm64 CGO_ENABLED=1 CGO_ENABLED=1 go build -ldflags="$flags" -o ${BUILD_ARTIFACTS_FOLDER}/PanIndex${EXT} .
 fi
 
-cp -r LICENSE README.md config/config.json ${BUILD_ARTIFACTS_FOLDER}/
+cp -r LICENSE README.md ${BUILD_ARTIFACTS_FOLDER}/
 cd ${BUILD_ARTIFACTS_FOLDER}
 
 if [ $1 == 'windows' ]; then
